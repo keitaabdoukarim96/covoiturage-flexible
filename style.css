@@ -1,0 +1,895 @@
+/* Style pour le header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+}
+
+.header-left {
+  flex: 1;
+  text-align: left;
+}
+
+.header-center {
+  flex: 2;
+  text-align: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espace entre les boutons */
+}
+.btn-localisation,
+.btn-login {
+  padding: 6px 12px;
+  border: 1px solid white;
+  background-color: white;
+  color: #1976d2;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.btn-localisation:hover,
+.btn-login:hover {
+  background-color: #f0f0f0;
+}
+
+#localiser {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-left: 0;
+}
+
+#localiser:hover {
+  background-color: white;
+  color: #1976d2;
+}
+
+
+/* Style pour la carte */
+#map {
+  width: 100%;
+  height: 85vh;
+  background-color: #ddd;
+  text-align: center;
+  line-height: initial;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* SECTION FORMULAIRE – ULTRA COMPACTE */
+#formulaire-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0;
+  min-height: auto;
+
+}
+
+
+/* Formulaire double colonne ultra compact */
+.form-container {
+  display: flex;
+  align-items: center; /* aligné parfaitement verticalement */
+  justify-content: center; /* centré sur la page */
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px 15px;
+  padding-bottom: 50px !important; /* ajustement global */
+  gap: 10px; /* <<< réduit le gap entre form et bouton */
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+
+}
+
+
+#form-usager.form-part {
+  margin-right: 0 !important;
+}
+
+.form-part {
+  flex: 0 0 auto; /* <<< empêcher que ça prenne toute la place */
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.form-actions-row {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.form-part h3 {
+  margin-top: 0;
+  margin-bottom: 2px;
+  font-size: 12px;
+  color: #1976d2;
+}
+
+.form-part label {
+  margin-top: 3px;
+  font-size: 11px;
+}
+
+.form-part input[type="text"],
+.form-part select {
+  width: 100%;
+  max-width: 100%;
+  padding: 2px 4px;
+  margin-top: 2px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+#heure-detaillee {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+#heure-depart-detaillee {
+  margin-bottom: 6px;
+}
+
+.heure-detaillee-group {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.heure-detaillee-group input {
+  width: 30%;
+  text-align: center;
+  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.fleche-img {
+  transition: transform 0.4s ease;
+}
+.fleche-img.rotate {
+  transform: rotate(180deg);
+}
+
+
+/* Bouton d'inversion centré */
+.switch-button {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; /* <<< enlève tout margin pour qu’il soit bien collé */
+}
+
+
+#switch-btn {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#switch-btn:hover {
+  background-color: #135abf;
+  transform: scale(1.1); /* petit effet zoom au survol */
+}
+
+.fleche-img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Footer ultra compact */
+.form-footer {
+  margin-top: 2px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+#timer {
+  font-size: 12px;
+  color: #d32f2f;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+#submitForm {
+  padding: 3px 6px; /* réduit un peu */
+  font-size: 10px; /* réduit la taille du texte */
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px; /* coins un peu moins arrondis */
+  cursor: pointer;
+  margin-top: 30px; /* descend moins bas */
+  height: auto;
+  min-width: 50px; /* largeur minimale réduite */
+}
+
+/* Espacement entre heure-detaillee et heure-selection */
+#heure-detaillee {
+  margin-bottom: 6px;
+}
+
+
+/* Style général pour les popups */
+.custom-popup {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+.custom-popup b {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.custom-popup i {
+  margin-right: 5px;
+  color: #1976d2;
+}
+
+.popup-section {
+  margin-bottom: 3px;
+  font-size: 12px;
+  padding-bottom: 2px;
+}
+
+.popup-section ul {
+  padding-left: 15px;
+  list-style-type: none;
+  margin: 0;
+}
+
+.popup-section ul li {
+  margin-bottom: 2px;
+  text-align: left;
+  display: inline-block;
+  width: 30%;
+}
+
+.popup-section p {
+  font-size: 12px;
+  margin: 3px 0;
+}
+
+.popup-section:last-child {
+  margin-bottom: 0;
+}
+
+.custom-popup .fa {
+  font-size: 14px;
+}
+
+.leaflet-popup:hover {
+  pointer-events: all;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-center ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/* STYLE DES MARQUEURS PERSONNALISÉS */
+.custom-marker {
+  width: 35px;
+  height: 35px;
+  background: #1976d2;
+  color: white;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-inner {
+  transform: rotate(45deg);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.marker-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 50%;
+  z-index: 2;
+  border: 1px solid #fff;
+}
+
+.marker-icons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 7px;
+}
+
+.marker-icons.left {
+  left: 4px;
+}
+
+.marker-icons.right {
+  right: 4px;
+}
+
+
+
+.passenger-fields {
+  display: flex;
+  justify-content: flex-start; /* alignement à gauche */
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.passenger-box {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.passenger-box input {
+  width: 30px;
+  padding: 2px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.depart-extension {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.code-colonne {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.code-box input {
+  width: 35px;
+  padding: 2px;
+  font-size: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.voiture-colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.voiture-icon i {
+  font-size: 18px;
+  color: #1976d2;
+}
+
+.voiture-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.voiture-info i {
+  font-size: 12px;
+  color: #444;
+}
+
+.voiture-info input {
+  width: 32px;
+  padding: 2px;
+  font-size: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.arret-colonne {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+.arret-colonne select {
+  font-size: 10px;
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+
+.form-container-with-timer {
+  width: 100%; /* → prend toute la largeur */
+  max-width: none; /* → plus aucune limitation */
+  padding: 10px;
+}
+
+.form-footer-right {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+  .form-container-with-timer {
+    flex-direction: column;
+  }
+
+  .form-footer-right {
+    width: 100%;
+  }
+}
+
+.form-button-right {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+
+#submitForm:hover {
+  background-color: #135abf;
+}
+
+#login-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#login-btn:hover {
+  background-color: white;
+  color: #1976d2;
+}
+
+/* HEURE DESTINATION */
+#destination {
+  width: 130px;
+  padding: 2px 4px;
+  font-size: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#form-destination label[for="destination"] {
+  font-size: 11px;
+  margin-bottom: 2px;
+  display: block; /* reste au-dessus du select */
+}
+
+
+
+.destination-heure-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.destination-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.destination-field label {
+  font-size: 11px;
+  color: #1976d2;
+  margin-bottom: 2px;
+}
+
+#destination {
+  width: 130px;
+  padding: 2px 4px;
+  font-size: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.heure-destination-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.heure-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.heure-item label,
+.heure-item i {
+  font-size: 11px;
+  font-weight: bold;
+  color: #1976d2;
+  white-space: nowrap;
+}
+
+.heure-item input {
+  width: 40px !important; /* ← légèrement agrandi */
+  padding: 2px 4px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+.bus-hour {
+  justify-content: center;
+}
+
+#source-lieu {
+  width: 130px;
+  padding: 2px 4px;
+  font-size: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+#form-usager label[for="source-lieu"] {
+  font-size: 11px;
+  color: #1976d2;
+  margin-bottom: 2px;
+  display: block;
+}
+
+
+.depart-top-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 20px; /* ← Espace entre Code et Destination */
+  margin-bottom: 10px;
+}
+
+.code-colonne-left {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.code-colonne-left label {
+  font-size: 11px;
+  color: #1976d2;
+  margin-bottom: 2px;
+}
+
+.code-colonne-left select {
+  width: 60px; /* même taille que "Lieu de départ" */
+  padding: 2px 4px;
+  font-size: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+#form-usager .passenger-fields {
+  margin-top: -12px; /* petit espace */
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+
+.voiture-capacite-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.voiture-capacite-select i {
+  font-size: 16px;
+  color: #1976d2;
+}
+
+.voiture-capacite-select input[type="range"] {
+  width: 100px;
+  cursor: pointer;
+}
+
+.voiture-capacite-select span {
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 15px;
+  text-align: center;
+  color: #333;
+}
+.voiture-info-group {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* espace entre les deux blocs */
+  margin-top: 8px;
+  margin-left: -95px;
+}
+
+.voiture-nombre-passagers,
+.voiture-immatriculation {
+  display: flex;
+  flex-direction: column;
+}
+
+.voiture-nombre-passagers label,
+.voiture-immatriculation label {
+  font-size: 11px;
+  color: #1976d2;
+  margin-bottom: 2px;
+}
+
+#nbre-passagers,
+#immat-vehicule {
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80px;
+  box-sizing: border-box;
+}
+
+#immat-vehicule {
+  width: 130px; /* un peu plus large pour l'immatriculation */
+}
+
+/* Highlight animation pour les champs */
+.highlight {
+  animation: highlight-green 1s ease;
+}
+
+@keyframes highlight-green {
+  from {
+    background-color: #d4edda; /* vert clair */
+  }
+  to {
+    background-color: white; /* revient blanc */
+  }
+}
+
+
+/* ============================= */
+/* RESPONSIVE VERSION MOBILE     */
+/* ============================= */
+@media screen and (max-width: 768px) {
+  
+  /* Header mobile */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-left, .header-center, .header-right {
+    flex: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .header-right {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #localiser, #login-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: auto;
+  }
+
+  /* Map mobile */
+  #map {
+    height: 50vh;
+    margin-top: 10px;
+  }
+
+  /* Formulaire mobile */
+  .form-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .form-part {
+    max-width: 100%;
+  }
+
+  .switch-button {
+    margin: 20px auto;
+  }
+
+  .form-button-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #submitForm {
+    width: 80%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Ajustements sur les groupes */
+  .destination-heure-group,
+  .heure-destination-group,
+  .passenger-fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heure-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .heure-item input {
+    width: 50%;
+    font-size: 12px;
+  }
+
+  /* Voiture info group */
+  .voiture-info-group {
+    flex-direction: column;
+    margin-left: 0;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #nbre-passagers, #immat-vehicule {
+    width: 100%;
+  }
+
+  /* Popup */
+  .custom-popup {
+    font-size: 14px;
+  }
+
+  /* Général */
+  input, select {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+}
+
+
+/* Animation de rotation pour l'inverseur */
+.fleche-img {
+  transition: transform 0.4s ease;
+}
+
+.fleche-img.rotate {
+  transform: rotate(180deg);
+}
+
+
+.combined-fields {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.bus-hour-alone {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bus-hour-alone input {
+  width: 80px;
+  padding: 2px 4px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .combined-fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bus-hour-alone {
+    justify-content: flex-start;
+  }
+}
+
+

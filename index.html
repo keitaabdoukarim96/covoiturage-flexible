@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interface Covoiturage Dynamique</title>
+
+  <!-- Styles & Librairies -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+  <!-- Scripts externes -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <span id="visiteur">Anonyme : ...</span>
+    </div>
+    <div class="header-center">
+      <span id="heure"></span>
+    </div>
+    <div class="header-right">
+      <button id="localiser">📍 Me localiser</button>
+      <button id="login-btn">🔐 Login</button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div id="map" style="height: 600px; width: 100%;"></div>
+  </main>
+
+  <!-- SECTION FORMULAIRE -->
+  <section id="formulaire-section" class="hidden">
+    <div class="form-container-with-timer">
+      <div class="form-container">
+        
+        <!-- Formulaire de départ -->
+        <form id="form-destination" class="form-part">
+          <div class="destination-heure-group">
+           
+            <div class="code-colonne-left">
+                
+              <select id="code-select">
+                <option value="od" selected>👤 oP</option>
+              <option value="op">👤 oD</option>
+              <option value="mp">👤 mP</option>
+              <option value="md">👤 mD</option>
+              </select>
+            </div>
+            <select id="voiture-capacite" >
+                <option>🚗1 sur 5</option>
+                <option>🚗2 sur 5</option>
+                <option>🚗3 sur 5</option>
+                <option>🚗4 sur 5</option>
+                <option>🚗5 sur 5</option>
+              </select>
+            <div class="destination-field">
+              <label for="source-lieu">Lieu de départ :</label>
+              <select id="source-lieu" disabled>
+                <option value="gare"></option>
+                <option value="maison"></option>
+                <option value="travail"></option>
+                <option value="université"></option>
+                <option value="autre"></option>
+              </select>
+            </div>
+
+            <div class="heure-destination-group">
+              <div class="heure-item bus-hour">
+                <i class="fa fa-clock"></i>
+                <input type="text" id="heure-voiture" placeholder="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="combined-fields" style="margin-left: 100px !important;">
+            <div class="passenger-fields">
+              <div class="passenger-box">
+                <label for="nb-montee-depart">
+                    <i class="fa fa-user"></i>
+                    <i class="fa fa-arrow-up" style="color: #1976d2;"></i>
+                  </label>
+                  <input type="number" id="nb-montee-depart" min="0" max="10" />
+                
+              </div>
+
+              <div class="passenger-box">
+                <label for="nb-descente-depart">
+                    <i class="fa fa-user"></i>
+                    <i class="fa fa-arrow-down" style="color: #d32f2f;"></i>
+                  </label>
+                  <input type="number" id="nb-descente-depart" min="0" max="10" />
+              </div>
+            </div>
+
+            <div class="heure-destination-group">
+              <div class="heure-item">
+                <label for="heure-minus-depart">H<sup>-</sup></label>
+                <input type="text" id="heure-minus-depart" placeholder="" />
+              </div>
+
+              <div class="heure-item">
+                <label for="heure-plus-depart">H<sup>+</sup></label>
+                <input type="text" id="heure-plus-depart" placeholder="" />
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Bouton inversion -->
+        <div class="switch-button">
+          <button type="button" id="switch-btn" title="Inverser les champs">
+            <img src="images/fleches.png" alt="Inverser" class="fleche-img" />
+          </button>
+        </div>
+
+        <!-- Formulaire de destination -->
+        <form id="form-destination" class="form-part">
+          <div class="destination-heure-group">
+            <div class="destination-field">
+              <label for="destination">Lieu d’arrivée :</label>
+              <select id="destination" disabled>
+                <option value="gare"></option>
+                <option value="maison"></option>
+                <option value="travail"></option>
+                <option value="université"></option>
+                <option value="autre"></option>
+              </select>
+            </div>
+
+            <div class="heure-destination-group">
+              <div class="heure-item bus-hour">
+                <i class="fa fa-bus"></i>
+                <input type="text" id="heure-bus" placeholder="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="combined-fields">
+            <div class="passenger-fields">
+              <div class="passenger-box">
+                <label for="nb-descente">
+                  <i class="fa fa-user"></i>
+                  <i class="fa fa-arrow-down" style="color: #d32f2f;"></i>
+                </label>
+                <input type="number" id="nb-descente" min="0" max="10" />
+              </div>
+
+              <div class="passenger-box">
+                <label for="nb-montee">
+                  <i class="fa fa-user"></i>
+                  <i class="fa fa-arrow-up" style="color: #1976d2;"></i>
+                </label>
+                <input type="number" id="nb-montee" min="0" max="10" />
+              </div>
+            </div>
+
+            <div class="heure-destination-group">
+              <div class="heure-item">
+                <label for="heure-minus">H<sup>-</sup></label>
+                <input type="text" id="heure-minus" placeholder="" />
+              </div>
+
+              <div class="heure-item">
+                <label for="heure-plus">H<sup>+</sup></label>
+                <input type="text" id="heure-plus" placeholder="" />
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Bouton validation -->
+        <div class="form-button-right">
+          <button type="submit" id="submitForm">✅ Valider</button>
+        </div>
+      </div>
+
+      <!-- Info véhicule (déplacé hors des formulaires) -->
+      <div class="voiture-info-group" style="margin-left: 327px !important; margin-top: -45px !important;">
+        <div class="voiture-nombre-passagers">
+          <label for="nbre-passagers">nbre P</label>
+          <select id="nbre-passagers">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option selected>5</option>
+          </select>
+        </div>
+
+        <div class="voiture-immatriculation">
+          <label for="immat-vehicule">immat</label>
+          <input type="text" id="immat-vehicule" placeholder="FR 9193 3029" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>
